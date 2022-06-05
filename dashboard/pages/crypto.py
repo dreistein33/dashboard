@@ -33,33 +33,33 @@ while True:
 
         fst.header('USD')
         for key, val in usd.items():
-            fst.metric(key.upper(), value=f'{val} USD', delta=None)
+            fst.metric(key.upper(), value=f'{val}', delta=None)
 
         scd.header('USDT')
         usdtbtc = get_stable('tether', 'btc')
         usdtether = get_stable('tether', 'eth')
-        scd.metric('BITCOIN', value = f'{usdtbtc:.2f} USDT', delta=None)
-        scd.metric('ETHEREUM', value = f'{usdtether:.2f} USDT', delta=None)
+        scd.metric('BITCOIN', value = f'{usdtbtc:.2f}', delta=None)
+        scd.metric('ETHEREUM', value = f'{usdtether:.2f}', delta=None)
 
         thd.header('USDC')
         usdcbtc = get_stable('usd-coin', 'btc')
         usdcether = get_stable('usd-coin', 'eth')
-        thd.metric('BITCOIN', value = f'{usdcbtc:.2f} USDC', delta=None)
-        thd.metric('BITCOIN', value = f'{usdcether:.2f} USDC', delta=None)
+        thd.metric('BITCOIN', value = f'{usdcbtc:.2f}', delta=None)
+        thd.metric('BITCOIN', value = f'{usdcether:.2f}', delta=None)
 
         fth.header('PLN')
         for key, val in pln.items():
-            fth.metric(key.upper(), value=f'{val} PLN', delta=None)
+            fth.metric(key.upper(), value=f'{val}', delta=None)
 
         ffth.header('BTC')
         for key, val in btc.items():
             if key != 'bitcoin':
-                ffth.metric(key.upper(), value=f'{val} BTC', delta=None)
+                ffth.metric(key.upper(), value=f'{val}', delta=None)
 
         sxth.header('SATOSHI')
         for key, val in sats.items():
             if key != 'bitcoin':
-                sxth.metric(key.upper(), value=f'{val} SATO', delta=None)
+                sxth.metric(key.upper(), value=f'{val}', delta=None)
 
     time.sleep(30)
     pipi.empty()
