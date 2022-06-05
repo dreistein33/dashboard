@@ -49,11 +49,13 @@ while True:
 
         ffth.header('BTC')
         for key, val in btc.items():
-            ffth.metric(key.upper(), value=f'{val} BTC', delta=None)
+            if key != 'bitcoin':
+                ffth.metric(key.upper(), value=f'{val} BTC', delta=None)
 
         sxth.header('SATOSHI')
         for key, val in sats.items():
-            sxth.metric(key.upper(), value=f'{val} SATO', delta=None)
+            if key != 'bitcoin':
+                sxth.metric(key.upper(), value=f'{val} SATO', delta=None)
 
     time.sleep(30)
     pipi.empty()
