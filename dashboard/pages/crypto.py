@@ -63,7 +63,7 @@ while True:
         usdcbtc = get_stable('usd-coin', 'btc')
         usdcether = get_stable('usd-coin', 'eth')
         thd.metric('BITCOIN', value = f'{usdcbtc:.2f}', delta=f'{(usdcbtc-HUSDCBTC):.2f}')
-        thd.metric('BITCOIN', value = f'{usdcether:.2f}', delta=f'{(usdcether-HUSDCETHER}):.2f')
+        thd.metric('BITCOIN', value = f'{usdcether:.2f}', delta=f'{(usdcether-HUSDCETHER}:.2f)')
 
         fth.header('PLN')
         for key, val in pln.items():
@@ -88,5 +88,5 @@ while True:
     HUSDCBTC = usdcbtc
     HUSDCETHER = usdcether
 
-    time.sleep(60)
+    time.sleep(90)
     pipi.empty()
