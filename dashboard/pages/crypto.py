@@ -88,5 +88,5 @@ while True:
     HUSDCBTC = usdcbtc
     HUSDCETHER = usdcether
 
-    time.sleep(30)
+    time.sleep(60)
     pipi.empty()
