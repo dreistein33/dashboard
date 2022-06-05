@@ -18,14 +18,11 @@ def get_tick(symbol):
     return crypto_dict
 
 while True:
-    usd = get_tick('usd')
-    time.sleep(5)
-    pln = get_tick('pln')
-    time.sleep(5)
+    usd = get_tick('usd')  
+    pln = get_tick('pln')  
     btc = get_tick('btc')
-    time.sleep(5)
     sats = get_tick('sats')
-    time.sleep(5)
+    
     with pipi.container():
         fst, scd, thd, fth, ffth, sxth =  st.columns([1, 1, 1, 1, 1, 1])
 
@@ -47,11 +44,13 @@ while True:
 
         ffth.header('BTC')
         for key, val in btc.items():
-            ffth.metric(key.upper(), value=f'{val} BTC', delta=None)
+            if key != 'bitcoin':
+                ffth.metric(key.upper(), value=f'{val} BTC', delta=None)
 
         sxth.header('SATOSHI')
         for key, val in sats.items():
-            sxth.metric(key.upper(), value=f'{val} SATO', delta=None)
+            if key != 'bitcoin':
+                sxth.metric(key.upper(), value=f'{val} SATO', delta=None)
 
-    time.sleep(90)
+    time.sleep(30)
     pipi.empty()
