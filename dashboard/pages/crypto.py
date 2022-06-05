@@ -49,5 +49,5 @@ while True:
         for key, val in sats.items():
             sxth.metric(key.upper(), value=f'{val} SATO', delta=None)
 
-    time.sleep(20)
+    time.sleep(35)
     pipi.empty()
