@@ -17,8 +17,8 @@ def get_tick(symbol):
 
     return crypto_dict
 
-def get_stable(symbol):
-    price = client.get_price(ids=symbol, vs_currencies='btc')[symbol]['btc']
+def get_stable(symbol, vs_symbol):
+    price = client.get_price(ids=symbol, vs_currencies=vs_symbol)[symbol][vs_symbol]
 
     return 1 / price
 
@@ -36,12 +36,16 @@ while True:
             fst.metric(key.upper(), value=f'{val} USD', delta=None)
 
         scd.header('USDT')
-        usdt = get_stable('tether')
-        scd.metric('BITCOIN', value = f'{usdt:.2f} USDT', delta=None)
+        usdtbtc = get_stable('tether', 'btc')
+        usdtether = get_stable('tether', 'eth')
+        scd.metric('BITCOIN', value = f'{usdtbtc:.2f} USDT', delta=None)
+        scd.metric('ETHEREUM', value = f'{usdtether:.2f} USDT', delta=None)
 
         thd.header('USDC')
-        usdc = get_stable('usd-coin')         
-        thd.metric('BITCOIN', value = f'{usdc:.2f} USDC', delta=None)
+        usdcbtc = get_stable('usd-coin', 'btc')
+        usdcether = get_stable('usd-coin', 'eth')
+        thd.metric('BITCOIN', value = f'{usdcbtc:.2f} USDC', delta=None)
+        thd.metric('BITCOIN', value = f'{usdcether:.2f} USDC', delta=None)
 
         fth.header('PLN')
         for key, val in pln.items():
