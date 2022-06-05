@@ -19,9 +19,13 @@ def get_tick(symbol):
 
 while True:
     usd = get_tick('usd')
+    time.sleep(5)
     pln = get_tick('pln')
+    time.sleep(5)
     btc = get_tick('btc')
+    time.sleep(5)
     sats = get_tick('sats')
+    time.sleep(5)
     with pipi.container():
         fst, scd, thd, fth, ffth, sxth =  st.columns([1, 1, 1, 1, 1, 1])
 
