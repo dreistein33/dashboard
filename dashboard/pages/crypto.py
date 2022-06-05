@@ -23,7 +23,7 @@ def get_stable(symbol, vs_symbol):
     return 1 / price
 
 def calculate_difference(old_data, new_data):
-    differences = {}
+    differences = {'bitcoin': 0, 'ethereum': 0, 'tron': 0}
     sharedKeys = {'bitcoin', 'ethereum', 'tron'}
     for key in sharedKeys:
         if old_data[key] != new_data[key]:
