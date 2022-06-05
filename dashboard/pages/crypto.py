@@ -37,11 +37,11 @@ while True:
 
         scd.header('USDT')
         usdt = get_stable('tether')
-        scd.metric('BITCOIN', value = f'{usdt} USDT', delta=None)
+        scd.metric('BITCOIN', value = f'{usdt:.2f} USDT', delta=None)
 
         thd.header('USDC')
         usdc = get_stable('usd-coin')         
-        thd.metric('BITCOIN', value = f'{usdc} USDC', delta=None)
+        thd.metric('BITCOIN', value = f'{usdc:.2f} USDC', delta=None)
 
         fth.header('PLN')
         for key, val in pln.items():
