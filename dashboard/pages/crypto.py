@@ -17,12 +17,17 @@ def get_tick(symbol):
 
     return crypto_dict
 
+def get_stable(symbol):
+    price = client.get_price(ids=symbol, vs_currencies='btc')[symbol]['btc']
+
+    return 1 / price
+
+
 while True:
-    usd = get_tick('usd')  
-    pln = get_tick('pln')  
+    usd = get_tick('usd')
+    pln = get_tick('pln')
     btc = get_tick('btc')
     sats = get_tick('sats')
-    
     with pipi.container():
         fst, scd, thd, fth, ffth, sxth =  st.columns([1, 1, 1, 1, 1, 1])
 
@@ -31,12 +36,12 @@ while True:
             fst.metric(key.upper(), value=f'{val} USD', delta=None)
 
         scd.header('USDT')
-        for key, val in usd.items():
-            scd.metric(key.upper(), value=f'{val} USDT', delta=None)
+        usdt = get_stable('tether')
+        scd.metric('BITCOIN', value = f'{usdt} USDT', delta=None)
 
         thd.header('USDC')
-        for key, val in usd.items():
-            thd.metric(key.upper(), value=f'{val} USDC', delta=None)
+        usdc = get_stable('usd-coin')         
+        thd.metric('BITCOIN', value = f'{usdc} USDC', delta=None)
 
         fth.header('PLN')
         for key, val in pln.items():
@@ -44,13 +49,11 @@ while True:
 
         ffth.header('BTC')
         for key, val in btc.items():
-            if key != 'bitcoin':
-                ffth.metric(key.upper(), value=f'{val} BTC', delta=None)
+            ffth.metric(key.upper(), value=f'{val} BTC', delta=None)
 
         sxth.header('SATOSHI')
         for key, val in sats.items():
-            if key != 'bitcoin':
-                sxth.metric(key.upper(), value=f'{val} SATO', delta=None)
+            sxth.metric(key.upper(), value=f'{val} SATO', delta=None)
 
     time.sleep(30)
     pipi.empty()
