@@ -51,7 +51,7 @@ while True:
 
         fst.header('USD')
         for key, val in usd.items():
-            fst.metric(key.upper(), value=f'{val}', delta=f'{calculate_difference(HUSD, usd)[key]}:.2f')
+            fst.metric(key.upper(), value=f'{val}', delta=f'{calculate_difference(HUSD, usd)[key]:.2f}')
 
         scd.header('USDT')
         usdtbtc = get_stable('tether', 'btc')
@@ -67,17 +67,17 @@ while True:
 
         fth.header('PLN')
         for key, val in pln.items():
-            fth.metric(key.upper(), value=f'{val}', delta=f'{calculate_difference(HPLN, pln)[key]}:.2f')
+            fth.metric(key.upper(), value=f'{val}', delta=f'{calculate_difference(HPLN, pln)[key]:.2f}')
 
         ffth.header('BTC')
         for key, val in btc.items():
             if key != 'bitcoin':
-                ffth.metric(key.upper(), value=f'{val}', delta=f'{calculate_difference(HBTC, btc)[key]}:.2f')
+                ffth.metric(key.upper(), value=f'{val}', delta=f'{calculate_difference(HBTC, btc)[key]:.2f}')
 
         sxth.header('SATOSHI')
         for key, val in sats.items():
             if key != 'bitcoin':
-                sxth.metric(key.upper(), value=f'{val}', delta=f'{calculate_difference(HSATS, sats)[key]}:.2f')
+                sxth.metric(key.upper(), value=f'{val}', delta=f'{calculate_difference(HSATS, sats)[key]:.2f}')
                 
     HUSD = usd
     HPLN = pln
