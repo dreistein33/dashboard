@@ -56,14 +56,14 @@ while True:
         scd.header('USDT')
         usdtbtc = get_stable('tether', 'btc')
         usdtether = get_stable('tether', 'eth')
-        scd.metric('BITCOIN', value = f'{usdtbtc:.2f}', delta=usdtbtc-HUSDTBTC)
-        scd.metric('ETHEREUM', value = f'{usdtether:.2f}', delta=usdtether-HUSDTETHER)
+        scd.metric('BITCOIN', value = f'{usdtbtc:.2f}', delta=f'{(usdtbtc-HUSDTBTC):.2f}')
+        scd.metric('ETHEREUM', value = f'{usdtether:.2f}', delta=f'{(usdtether-HUSDTETHER):.2f}')
 
         thd.header('USDC')
         usdcbtc = get_stable('usd-coin', 'btc')
         usdcether = get_stable('usd-coin', 'eth')
-        thd.metric('BITCOIN', value = f'{usdcbtc:.2f}', delta=usdcbtc-HUSDCBTC)
-        thd.metric('BITCOIN', value = f'{usdcether:.2f}', delta=usdcether-HUSDCETHER)
+        thd.metric('BITCOIN', value = f'{usdcbtc:.2f}', delta=f'{(usdcbtc-HUSDCBTC):.2f}')
+        thd.metric('BITCOIN', value = f'{usdcether:.2f}', delta=f'{(usdcether-HUSDCETHER}):.2f')
 
         fth.header('PLN')
         for key, val in pln.items():
