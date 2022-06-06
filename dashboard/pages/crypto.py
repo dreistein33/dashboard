@@ -52,6 +52,14 @@ while True:
         fst.header('USD')
         for key, val in usd.items():
             fst.metric(key.upper(), value=f'{val}', delta=f'{calculate_difference(HUSD, usd)[key]:.2f}')
+        fst.write('')
+        fst.write('')
+        fst.write('')
+        fst.write('')
+        fst.write('')
+        fst.write('')
+        fst.write('')        
+        fst.image('https://alternative.me/crypto/fear-and-greed-index.png')
 
         scd.header('USDT')
         usdtbtc = get_stable('tether', 'btc')
