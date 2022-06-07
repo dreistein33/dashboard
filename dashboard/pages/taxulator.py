@@ -45,7 +45,7 @@ if uploaded_file is not None:
     st.write(f'SPRZEDANO ZA {cash_values[1]} PLN')
 
     if cash_values[2] < 0:
-        st.write(f'MASZ {cash_values[2]} DO ZREALIZOWANIA ZEBY ZACZAC PROFIT')
+        st.write(f'MASZ {cash_values[2]} PLN DO ZREALIZOWANIA ZEBY ZACZAC PROFIT')
     else:
         st.write(f'{cash_values[2]} PROFITU PLN')
         st.write(f'{cash_values[3]} PPODATKU PIT PLN')
