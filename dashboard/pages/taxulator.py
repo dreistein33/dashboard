@@ -41,12 +41,12 @@ uploaded_file = st.file_uploader('Choose a file')
 if uploaded_file is not None:
     dataframe = TaxCalculator(uploaded_file)
     cash_values = dataframe.return_profit_and_tax()
-    st.write(f'{cash_values[0]} KOSZT PLN')
-    st.write(f'SPRZEDANO ZA {cash_values[1]} PLN')
+    st.metric(label='KOSZT', value=f'{cash_values[0]} PLN')
+    st.metric(label='SPRZEDAZ', value=f'{cash_values[1]} PLN')
 
     if cash_values[2] < 0:
-        st.write(f'MASZ {cash_values[2]} PLN DO ZREALIZOWANIA ZEBY ZACZAC PROFIT')
+        st.metric(label='POZOSTALO DO PROFITU', value=f'{cash_values[2]} PLN')
     else:
-        st.write(f'{cash_values[2]} PROFITU PLN')
-        st.write(f'{cash_values[3]} PPODATKU PIT PLN')
-        st.write(f'{cash_values[4]} PROFITU NETTO PLN')
+        st.metric(label='PROFIT' value=f'{cash_values[2]} PLN')
+         st.metric(label='PODATEK' value=f'{cash_values[3]} PLN')
+         st.metric(label='PROFIT NETTO' value=f'{cash_values[4]} PLN')
