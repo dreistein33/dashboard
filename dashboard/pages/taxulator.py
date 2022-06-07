@@ -48,5 +48,5 @@ if uploaded_file is not None:
         st.metric(label='POZOSTALO DO PROFITU', value=f'{cash_values[2]} PLN')
     else:
         st.metric(label='PROFIT', value=f'{cash_values[2]} PLN')
-         st.metric(label='PODATEK', value=f'{cash_values[3]} PLN')
-         st.metric(label='PROFIT NETTO', value=f'{cash_values[4]} PLN')
+        st.metric(label='PODATEK', value=f'{cash_values[3]} PLN')
+        st.metric(label='PROFIT NETTO', value=f'{cash_values[4]} PLN')
