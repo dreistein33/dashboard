@@ -5,10 +5,11 @@ import time
 st.set_page_config(page_title='MINERS', layout='wide', page_icon=':moneybag:')
 ethermine = Ethermine()
 ad = st.secrets['wallet']
-source = ethermine.miner_current_stats(ad)
 pholder = st.empty()
 
+
 while True:
+    source = ethermine.miner_current_stats(ad)
     list_of_workers = [x for x in ethermine.miner_workers(ad)]
     with pholder.container():
         left_column, middle_column = st.columns([2, 1])
@@ -32,5 +33,6 @@ while True:
         middle_column.write(f'1MH = {chour:.16f} ETH PER HOUR')
         middle_column.write(f'1MH = {btchour:.16f} BTC PER HOUR')
 
+        
     time.sleep(60)
     pholder.empty()
