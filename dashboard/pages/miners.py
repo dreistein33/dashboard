@@ -24,7 +24,7 @@ while True:
         usd_per_min = source['usdPerMin']
         coin_per_min = source['coinsPerMin']
         btc_per_min = source['btcPerMin']
-        uhour = usd_per_min / reported_rate * 60
+        uhour = (usd_per_min * 60) / reported_rate
         chour = coin_per_min / reported_rate * 60
         btchour = btc_per_min / reported_rate * 60
         middle_column.header('1MH MOC')
