@@ -32,6 +32,11 @@ while True:
         middle_column.write(f'1MH = {uhour:.16f} USD PER HOUR')
         middle_column.write(f'1MH = {chour:.16f} ETH PER HOUR')
         middle_column.write(f'1MH = {btchour:.16f} BTC PER HOUR')
+        middle_column.write('---')
+        middle_column.header('MEGAHUJASZE ZA GODZINKE RUCHANKA ;)')
+        middle_column.subheader(f'{reported_rate}')
+        middle_column.write(f'{usd_per_min * 60} USD')
+        middle_column.write(f'{coin_per_min * 60} ETH')
 
         
     time.sleep(60)
