@@ -20,7 +20,7 @@ while True:
             if items['reportedHashrate'] < 100:
                 left_column.warning('COS SIE ZEPSULO!')
 
-        reported_rate = int(source['reportedHashrate']/10**6)
+        reported_rate = float(source['reportedHashrate']/10**6)
         usd_per_min = source['usdPerMin']
         coin_per_min = source['coinsPerMin']
         btc_per_min = source['btcPerMin']
