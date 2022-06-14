@@ -12,7 +12,7 @@ while True:
     source = ethermine.miner_current_stats(ad)
     list_of_workers = [x for x in ethermine.miner_workers(ad)]
     with pholder.container():
-        left_column, middle_column = st.columns([2, 1])
+        left_column, middle_column = st.columns([2, 1.5])
         left_column.header('MURZYNY:')
         left_column.write('---')
         for items in list_of_workers:
