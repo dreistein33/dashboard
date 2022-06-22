@@ -7,7 +7,6 @@ ethermine = Ethermine()
 ad = st.secrets['wallet']
 pholder = st.empty()
 
-
 while True:
     source = ethermine.miner_current_stats(ad)
     list_of_workers = [x for x in ethermine.miner_workers(ad)]
@@ -37,7 +36,6 @@ while True:
         middle_column.subheader(f'{reported_rate} MEGAHUJASZY')
         middle_column.write(f'{usd_per_min * 60} USD')
         middle_column.write(f'{coin_per_min * 60} ETH')
-
         
     time.sleep(60)
     pholder.empty()
