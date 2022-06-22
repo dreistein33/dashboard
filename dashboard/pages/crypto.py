@@ -17,10 +17,12 @@ def get_tick(symbol):
 
     return crypto_dict
 
+
 def get_stable(symbol, vs_symbol):
     price = client.get_price(ids=symbol, vs_currencies=vs_symbol)[symbol][vs_symbol]
 
     return 1 / price
+
 
 def calculate_difference(old_data, new_data):
     differences = {'bitcoin': 0, 'ethereum': 0, 'tron': 0}
@@ -30,6 +32,7 @@ def calculate_difference(old_data, new_data):
             differences[key] = new_data[key] - old_data[key]
 
     return differences
+
 
 HUSD = {'bitcoin': 0, 'ethereum': 0, 'tron': 0}
 HPLN = {'bitcoin': 0, 'ethereum': 0, 'tron': 0}
